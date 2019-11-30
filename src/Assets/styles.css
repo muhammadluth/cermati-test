@@ -1,18 +1,162 @@
 #header .image-backgroud {
-    background-image: url('./work-desk__dustin-lee.jpg');
-    background-size: cover;
-    background-position: center center;
-    top: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100vh;
-  }
-  
-  .overlay-view {
-    position: absolute;
-    background-color: rgba(12, 91, 120  , 0.6);
-    top: 0;
-    bottom: 0;
-    height: 100%;
-    width: 100%;
-  }
+  background-image: url("./work-desk__dustin-lee.jpg");
+  background-size: cover;
+  background-position: center;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+}
+.alert-view {
+  position: absolute;
+  bottom: 0;
+}
+.overlay-view {
+  position: absolute;
+  background-color: rgba(1, 44, 61, 0.6);
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+}
+.view-logo {
+  width: 50px;
+  height: 50px;
+  margin-top: 20px;
+  margin-left: 40px;
+}
+.logo {
+  width: 100%;
+  height: 100%;
+}
+.view-text {
+  padding-top: 10%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.title-header {
+  color: white;
+  font-size: 38px;
+  text-align: center;
+}
+.title-type {
+  color: white;
+  font-size: 38px;
+  text-align: center;
+  font-weight: bold;
+}
+.text-desc {
+  font-size: 26px;
+  color: white;
+  text-align: center;
+}
+.view-button {
+  text-align: center;
+  padding-top: 40px;
+}
+.button {
+  padding: 15px 50px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: transparent;
+  border-color: #fff;
+}
+
+.button:hover {
+  background-color: white;
+  font-weight: bold;
+  color: rgba(1, 44, 61, 1);
+}
+.button:active {
+  background-color: white;
+  font-weight: bold;
+  color: rgba(1, 44, 61, 1);
+}
+.title-content {
+  color: black;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  font-size: 34px;
+  font-weight: bold;
+  text-align: center;
+}
+.text-desc-content {
+  font-size: 20px;
+  color: black;
+  text-align: center;
+  padding-bottom: 50px;
+}
+.view-icon {
+  position: absolute;
+  font-size: 20px;
+  top: 10px;
+  right: 10px;
+  color: #abaaa7;
+}
+.body-card {
+  padding-bottom: 20px;
+  padding-top: 10px;
+  background-color: #e4e4e4;
+}
+.content {
+  background-color: #e4e4e4;
+  position: relative;
+}
+
+.view-card {
+  padding-bottom: 50px;
+}
+.view-footer {
+  color: #949dc9;
+}
+.newsletter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.newsletter-text {
+  text-align: justify;
+}
+.button-newsletter {
+  width: 100%;
+}
+.view-newsletter {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.text-button {
+  color: white;
+  font-weight: bold;
+}
+.view-card-newsletter {
+  background-color: rgba(0, 123, 193);
+}
+.icon-exit {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.card-title {
+  margin-top: 20px;
+}
+.notif {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+}
+.notif-text {
+  text-align: justify;
+}
+.button-notif {
+  margin-top: 5px;
+}
+.row-notif {
+  padding: 12px;
+}
