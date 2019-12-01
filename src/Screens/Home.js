@@ -11,10 +11,20 @@ import "animate.css";
 import "font-awesome/css/font-awesome.min.css";
 
 export default class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      togle: true,
+      visible: true
+    };
+    this.handleClose = this.handleClose.bind(this);
+    this.handleCloseEmail = this.handleCloseEmail.bind(this);
+    this.handleEmail = this.handleEmail.bind(this);
+  }
+
   handleButton() {
     store.addNotification({
-      message:
-        "By accessing and using this website, you acknowledge that you have read and understand our Cookie Policy, Privacy Policy, and our Terms of Service",
+      message: "Contact Me",
       type: "default", // 'default', 'success', 'info', 'warning'
       container: "top-center", // where to position the notifications
       animationIn: ["animated", "fadeIn"], // animate.css classes that's applied
@@ -25,6 +35,7 @@ export default class Home extends Component {
     });
   }
   handleEmail() {
+    this.setState({ visible: false });
     store.addNotification({
       message: "Login Success, Welcome to My Website!",
       type: "success", // 'default', 'success', 'info', 'warning'
@@ -36,6 +47,12 @@ export default class Home extends Component {
       }
     });
   }
+  handleCloseEmail() {
+    this.setState({ visible: false });
+  }
+  handleClose() {
+    this.setState({ togle: false });
+  }
   render() {
     return (
       <div>
@@ -44,9 +61,6 @@ export default class Home extends Component {
           <Header handleButton={this.handleButton} />
         </div>
         <div className="content">
-          {/* <div>
-            <Notif />
-          </div> */}
           <div className="container-fluid ">
             <div className="title-content">How Can I Help You?</div>
             <div className="text-desc-content">
@@ -155,8 +169,13 @@ export default class Home extends Component {
             </div>
           </div>
         </div>
+        <Notif handleClose={this.handleClose} togle={this.state.togle} />
         <Footer />
-        <Newsletter handleEmail={this.handleEmail} />
+        <Newsletter
+          handleEmail={this.handleEmail}
+          handleCloseEmail={this.handleCloseEmail}
+          visible={this.state.visible}
+        />
       </div>
     );
   }

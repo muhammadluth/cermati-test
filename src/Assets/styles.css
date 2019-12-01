@@ -115,6 +115,7 @@
 }
 .newsletter {
   position: absolute;
+  opacity: 0.9;
   bottom: 0;
   left: 0;
 }
