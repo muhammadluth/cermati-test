@@ -14,7 +14,7 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      togle: true,
+      isVisible: true,
       visible: true
     };
     this.handleClose = this.handleClose.bind(this);
@@ -25,40 +25,43 @@ export default class Home extends Component {
   handleButton() {
     store.addNotification({
       message: "Contact Me",
-      type: "default", // 'default', 'success', 'info', 'warning'
-      container: "top-center", // where to position the notifications
-      animationIn: ["animated", "fadeIn"], // animate.css classes that's applied
-      animationOut: ["animated", "fadeOut"], // animate.css classes that's applied
+      type: "default",
+      container: "top-center",
+      animationIn: ["animated", "fadeIn"],
+      animationOut: ["animated", "fadeOut"],
       dismiss: {
         duration: 2000
       }
     });
   }
   handleEmail() {
-    this.setState({ visible: false });
     store.addNotification({
       message: "Login Success, Welcome to My Website!",
-      type: "success", // 'default', 'success', 'info', 'warning'
-      container: "top-center", // where to position the notifications
-      animationIn: ["animated", "fadeIn"], // animate.css classes that's applied
-      animationOut: ["animated", "fadeOut"], // animate.css classes that's applied
+      type: "success",
+      container: "top-center",
+      animationIn: ["animated", "fadeIn"],
+      animationOut: ["animated", "fadeOut"],
       dismiss: {
         duration: 2000
       }
     });
+    this.setState({ visible: false });
   }
   handleCloseEmail() {
     this.setState({ visible: false });
   }
   handleClose() {
-    this.setState({ togle: false });
+    this.setState({ isVisible: false });
   }
   render() {
     return (
-      <div>
+      <div className="home">
         <div>
           <ReactNotifications />
-          <Header handleButton={this.handleButton} />
+          <Header
+            handleButton={this.handleButton}
+            isVisible={this.state.isVisible}
+          />
         </div>
         <div className="content">
           <div className="container-fluid ">
@@ -168,14 +171,19 @@ export default class Home extends Component {
               </div>
             </div>
           </div>
+          <div>
+            <Notif
+              handleClose={this.handleClose}
+              isVisible={this.state.isVisible}
+            />
+            <Footer />
+            <Newsletter
+              handleEmail={this.handleEmail}
+              handleCloseEmail={this.handleCloseEmail}
+              visible={this.state.visible}
+            />
+          </div>
         </div>
-        <Notif handleClose={this.handleClose} togle={this.state.togle} />
-        <Footer />
-        <Newsletter
-          handleEmail={this.handleEmail}
-          handleCloseEmail={this.handleCloseEmail}
-          visible={this.state.visible}
-        />
       </div>
     );
   }

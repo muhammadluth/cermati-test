@@ -1,12 +1,16 @@
 import React, { Component } from "react";
-
+import { Animated } from "react-animated-css";
 export default class Newsletter extends Component {
   render() {
     return (
       <div>
-        {this.props.visible === true ? (
-          <div className="col-xl-6 col-md-6 col-sm-4">
-            <div className="newsletter">
+        <div className="col-xl-6 col-md-6 col-sm-4">
+          <div className="newsletter">
+            <Animated
+              animationIn="slideInUp"
+              animationOut="slideOutDown"
+              isVisible={this.props.visible}
+            >
               <div className="card text-white">
                 <div className="card-body view-card-newsletter">
                   <div className="icon-exit">
@@ -24,7 +28,7 @@ export default class Newsletter extends Component {
                     and more. Sign up to my newsletter to get them all.
                   </p>
                   <div className="row">
-                    <div className="col-xl-9 col-md-9 col-sm-12 view-newsletter">
+                    <div className="col-xl-9 col-md-12 col-sm-12 view-newsletter">
                       <input
                         type="email"
                         className="form-control"
@@ -33,9 +37,8 @@ export default class Newsletter extends Component {
                         placeholder="Enter Address"
                       />
                     </div>
-                    <div className="col-xl-3 col-md-3 col-sm-12 view-newsletter">
+                    <div className="col-xl-3 col-md-12 col-sm-12 view-newsletter">
                       <a
-                        href="#"
                         onClick={() => this.props.handleEmail()}
                         className="btn btn-warning button-newsletter"
                       >
@@ -45,11 +48,9 @@ export default class Newsletter extends Component {
                   </div>
                 </div>
               </div>
-            </div>
+            </Animated>
           </div>
-        ) : (
-          <div />
-        )}
+        </div>
       </div>
     );
   }
