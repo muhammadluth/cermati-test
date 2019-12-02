@@ -9,17 +9,24 @@ import { store } from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import "animate.css";
 import "font-awesome/css/font-awesome.min.css";
+import { setInterval } from "timers";
 
 export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      email: "",
       isVisible: true,
       visible: true
     };
     this.handleClose = this.handleClose.bind(this);
     this.handleCloseEmail = this.handleCloseEmail.bind(this);
     this.handleEmail = this.handleEmail.bind(this);
+    this.setEmail = this.setEmail.bind(this);
+  }
+
+  async componentDidMount() {
+    await setInterval(localStorage.removeItem("Email"), 600000);
   }
 
   handleButton() {
@@ -35,6 +42,7 @@ export default class Home extends Component {
     });
   }
   handleEmail() {
+    localStorage.setItem("Email", this.state.email);
     store.addNotification({
       message: "Login Success, Welcome to My Website!",
       type: "success",
@@ -53,7 +61,12 @@ export default class Home extends Component {
   handleClose() {
     this.setState({ isVisible: false });
   }
+  setEmail(event) {
+    const value = event.target.value;
+    this.setState({ email: value });
+  }
   render() {
+    console.log(localStorage.getItem("Email"));
     return (
       <div className="home">
         <div>
@@ -178,6 +191,7 @@ export default class Home extends Component {
             />
             <Footer />
             <Newsletter
+              setEmail={this.setEmail}
               handleEmail={this.handleEmail}
               handleCloseEmail={this.handleCloseEmail}
               visible={this.state.visible}
